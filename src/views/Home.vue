@@ -136,10 +136,6 @@ export default {
       .catch(err => {
         this.showError(err.name + ': ' + err.message)
       })
-    },
-    getGoogleMapImage() {
-      console.log('here', process.env.VUE_APP_GM_API_KEY)
-      return 'https://maps.googleapis.com/maps/api/staticmap?center=40.714%2c%20-73.998&zoom=12&size=400x400&key=' + process.env.VUE_APP_GM_API_KEY
     }
   },
   computed: {
@@ -161,7 +157,7 @@ export default {
         this.data.lat + 
         '%2c%20' + 
         this.data.lon +
-        '&zoom=5&size=400x400&key=AIzaSyDL2C63jOmI6KCbylrnRSJ_5DriHfFMqZY'
+        '&zoom=5&size=400x400&key=' + process.env.VUE_APP_GM_API_KEY
     }
   }
 }
