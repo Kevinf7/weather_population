@@ -123,7 +123,7 @@ export default {
         /*convert from kelvin to celsius and round to 2 decimal places*/
         this.data.temp = Math.round((d.main.temp - 273.15) * 100) / 100 
         this.data.feelsLike = Math.round((d.main.feels_like - 273.15) * 100) / 100 
-        this.data.icon = 'https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/wn/' + d.weather[0].icon + '@2x.png'
+        this.data.icon = 'http://openweathermap.org/img/wn/' + d.weather[0].icon + '@2x.png'
         this.data.description = d.weather[0].description.charAt(0).toUpperCase() 
           + d.weather[0].description.slice(1)
         this.data.population = this.cityList[this.selected_index].population
