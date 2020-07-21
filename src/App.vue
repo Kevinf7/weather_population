@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site">
 <!--
     <b-navbar is-active=True>
         <template slot="end">
@@ -10,16 +10,30 @@
         </template>
     </b-navbar>-->
 
-    <router-view/>
+    <div class="site-main">
+      <router-view/>
+    </div>
     <footer class="footer">
       <div class="content has-text-centered">
         <img src="./assets/open_weather_logo.png" style="height:40px;"><br/>
         Weather data powered by OpenWeather<br/>
-        Population data from <a href="https://worldpopulationreview.com/world-cities/">https://worldpopulationreview.com/world-cities/</a>
+        Population data from <a href="https://worldpopulationreview.com/world-cities/">https://worldpopulationreview.com/world-cities/</a><br/>
+        Website design by <a href="https://kevin7.net">kevin7.net</a>
       </div>
     </footer>
   </div>
 </template>
+
+<style>
+  .site {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+  }
+  .site-main {
+      flex: 1 0 auto;
+  }
+</style>
 
 <style lang="scss">
   // Import Bulma's core

@@ -33,23 +33,23 @@
       </b-field>
     </section>
 
-    <section class="section">
+    <section class="section" v-if="data.city != ''">
         <div class="columns">
           <div class="column is-two-thirds">
             <div class="content">
               <h4>In {{ data.city }}, it is {{ data.time }}</h4>
 
               <img style="vertical-align:middle;" :src="data.icon">            
-              <span>
+              <div style="display: inline-block;">
                 <span class="is-size-2">{{ data.temp }}</span>
-                <span class="is-size-4">&deg;C</span>
+                <span class="is-size-3"><sup>&deg;C</sup></span>
                 <span class="is-size-2"> / Feels like {{ data.feelsLike }}</span>
-                <span class="is-size-4">&deg;C</span>
+                <span class="is-size-3"><sup>&deg;C</sup></span>
                 <span class="is-size-2"> / {{ data.description }}</span>
-              </span>
+              </div>
               
               <p>This city has a population of {{ data.population }}, 
-                and is ranked number {{ data.rank }} in the most populous cities.</p> 
+                and is ranked {{ data.rank }}, most populous city in the world.</p> 
 
               <p><img
                 src="../assets/person.svg"
@@ -163,24 +163,6 @@ export default {
 }
 </script>
 
-<!--
 <style scoped>
-  .w-info {
-    border-radius: 0.5rem;
-    padding: 0.2rem;
-    background-color: #8bbabb;
-  }
-  .is-day {
-    background-color: #f3ecc2;
-  }
-  .is-night {
-    background-color: #10375c;
-  }
-  .is-day-text {
-    color: #000000;
-  }
-  .is-night-text {
-    color: #FFFFFF;
-  }
+
 </style>
--->
