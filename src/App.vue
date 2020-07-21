@@ -18,7 +18,7 @@
         <img src="./assets/open_weather_logo.png" style="height:40px;"><br/>
         Weather data powered by OpenWeather<br/>
         Population data from <a href="https://worldpopulationreview.com/world-cities/">https://worldpopulationreview.com/world-cities/</a><br/>
-        Website design by <a href="https://kevin7.net">kevin7.net</a>
+        
       </div>
     </footer>
   </div>
