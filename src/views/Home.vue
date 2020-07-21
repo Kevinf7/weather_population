@@ -37,7 +37,8 @@
         <div class="columns">
           <div class="column is-two-thirds">
             <div class="content">
-              <h4>In {{ data.city }}, it is {{ data.time }}</h4>
+              <h4 style="display: inline-block;">In {{ data.city }}, it is {{ data.time }}</h4>
+              <img v-if="!isDay" src="../assets/moon.svg" width="20" style="margin-left:10px;"><br/><br/>
 
               <img style="vertical-align:middle;" :src="data.icon">            
               <div style="display: inline-block;">
