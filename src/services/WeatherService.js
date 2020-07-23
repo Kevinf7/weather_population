@@ -2,7 +2,8 @@ import axios from 'axios'
 
 
 const apiClient = axios.create({
-  baseURL: 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5',
+/* baseURL: 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5', */
+  baseURL: 'http://api.openweathermap.org/data/2.5',
   withCredentials: false,
   headers: {
     Accept: 'application/json',

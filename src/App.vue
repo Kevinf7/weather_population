@@ -1,37 +1,38 @@
 <template>
   <div class="site">
-<!--
-    <b-navbar is-active=True>
-        <template slot="end">
-            <b-navbar-item tag="div">
-              <router-link to="/">Home</router-link> |
-              <router-link to="/about">About</router-link>
-            </b-navbar-item>
-        </template>
-    </b-navbar>-->
-
     <div class="site-main">
-      <router-view/>
+      <Weather/>
     </div>
     <footer class="footer">
       <div class="content has-text-centered">
         <img src="./assets/open_weather_logo.png" style="height:40px;"><br/>
         Weather data powered by OpenWeather<br/>
         Population data from <a href="https://worldpopulationreview.com/world-cities/">https://worldpopulationreview.com/world-cities/</a><br/>
-        
+        Website design by <a href="https://www.kevin7.net">kevin7.net</a>
       </div>
     </footer>
   </div>
 </template>
 
-<style>
+<script>
+import Weather from './components/Weather.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Weather
+  }
+}
+</script>
+
+<style scoped>
   .site {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
   }
   .site-main {
-      flex: 1 0 auto;
+    flex: 1 0 auto;
   }
 </style>
 
@@ -39,8 +40,15 @@
   // Import Bulma's core
   @import "~bulma/sass/utilities/_all";
 
+  $primary: #84a9ac;
+  $primary-invert: findColorInvert($primary);
   $footer-background-color: #84a9ac;
   $section-padding: 2.5rem 1.5rem;
+
+  // Setup $colors to use as bulma classes (e.g. 'is-twitter')
+  $colors: (
+      "primary": ($primary, $primary-invert)
+  );
 
   // Import Bulma and Buefy styles
   @import "~bulma";
