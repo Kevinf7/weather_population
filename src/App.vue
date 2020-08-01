@@ -37,18 +37,11 @@ export default {
 </style>
 
 <style lang="scss">
-  // Import Bulma's core
-  @import "~bulma/sass/utilities/_all";
+  @charset "utf-8";
 
   $primary: #84a9ac;
-  $primary-invert: findColorInvert($primary);
   $footer-background-color: #84a9ac;
   $section-padding: 2.5rem 1.5rem;
-
-  // Setup $colors to use as bulma classes (e.g. 'is-twitter')
-  $colors: (
-      "primary": ($primary, $primary-invert)
-  );
 
   // Import Bulma and Buefy styles
   @import "~bulma";

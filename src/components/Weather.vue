@@ -7,7 +7,7 @@
       </div>
 
       <b-field style="display: inline-block;">
-        <b-select v-model="selected_index">
+        <b-select v-model="selectedIndex">
           <option
             disabled
             value="-1">
@@ -21,15 +21,6 @@
           </option>
         </b-select>
       </b-field>
-      <div style="display: inline-block; padding-left: 10px;">
-        <b-button
-          type="is-primary"
-          @click="getCityWeather"
-          :disabled="selected_index=='-1'">
-          Submit
-        </b-button>
-      </div>
-
     </section>
 
     <section class="section" v-if="data.city != ''">
@@ -66,7 +57,9 @@
             </div>
           </div>
           <div class="column">
-            <img :src="googleMapURL">
+            <transition name="fade">
+              <img :src="googleMapURL" :key="googleMapURL">
+            </transition>
           </div>
         </div>
     </section>
@@ -83,7 +76,7 @@ export default {
   data() {
     return {
       cityList: CityList.list,
-      selected_index: '-1',
+      selectedIndex: '-1',
       isLoading: false,
       data: {
         city: '',
@@ -122,7 +115,7 @@ export default {
     },
     getCityWeather() {
       this.isLoading = true
-      WeatherService.getWeather(this.cityList[this.selected_index].id)
+      WeatherService.getWeather(this.cityList[this.selectedIndex].id)
       .then(response => {
         console.log(response.data);
         let d = response.data
@@ -132,8 +125,8 @@ export default {
         this.data.icon = 'http://openweathermap.org/img/wn/' + d.weather[0].icon + '@2x.png'
         this.data.description = d.weather[0].description.charAt(0).toUpperCase() 
           + d.weather[0].description.slice(1)
-        this.data.population = this.cityList[this.selected_index].population
-        this.data.rank = this.cityList[this.selected_index].rank
+        this.data.population = this.cityList[this.selectedIndex].population
+        this.data.rank = this.cityList[this.selectedIndex].rank
         this.data.rawTime = new Date(Date.now() + (d.timezone * 1000))
         this.data.time = this.formatDateTime(this.data.rawTime)
         this.data.city = d.name
@@ -168,10 +161,21 @@ export default {
         this.data.lon +
         '&zoom=5&size=400x400&key=' + process.env.VUE_APP_GM_API_KEY
     }
+  },
+  watch: {
+    selectedIndex: function() {
+      this.getCityWeather()
+    }
   }
 }
 </script>
 
 <style scoped>
+    .fade-enter {
+      opacity: 0;
+    }
+    .fade-enter-active {
+      transition: opacity 0.2s ease-out;
+    }
 
 </style>
