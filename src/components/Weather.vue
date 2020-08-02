@@ -117,7 +117,6 @@ export default {
       this.isLoading = true
       WeatherService.getWeather(this.cityList[this.selectedIndex].id)
       .then(response => {
-        console.log(response.data);
         let d = response.data
         /*convert from kelvin to celsius and round to 2 decimal places*/
         this.data.temp = Math.round((d.main.temp - 273.15) * 100) / 100 
