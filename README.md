@@ -1,24 +1,6 @@
-# weather
+# Weather by population
 
-## Project setup
-```
-npm install
-```
+## Description
+A weather app of the 200 most populous cities in the world. Created in Vue as a learning project in conjunction with <a href="http://code.sydney">Code.Sydney</a>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See the app here - <a href="http://weatherpop.surge.sh">http://weatherpop.surge.sh</a>
